@@ -1,0 +1,17 @@
+<p>
+  <strong>Title:</strong>
+  <%= @label.title %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+</p>
+<% @label.notes.each do |note| %>
+  <p>
+    <%= note.head %> | <%= link_to "View Note", note %>
+  </p>
+<% end %>
+
+
+<%= link_to 'Edit', edit_label_path(@label) %> |
+<%= link_to 'Back', labels_path %>

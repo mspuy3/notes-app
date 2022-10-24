@@ -1,0 +1,41 @@
+<%= form_with(model: note) do |form| %>
+  <% if note.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(note.errors.count, "error") %> prohibited this note from being saved:</h2>
+
+      <ul>
+        <% note.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :head %>
+    <%= form.text_field :head %>
+  </div>
+
+  <div class="field">
+    <%= form.label :body %>
+    <%= form.text_field :body %>
+  </div>
+
+  <div class="field">
+    <%= form.label :deadline %>
+    <%= form.datetime_local_field :deadline, min: Date.today %>
+  </div>
+
+  <div class="field">
+    <%= form.label :label %>
+    <%= form.select :label_id, options_for_select(@labels.collect { |label| [label.title, label.id]})%>
+  </div>
+
+  <div class="field">
+    <%= form.number_field :user_id, id: :note_user_id, value: current_user.id, type: :hidden %>
+  </div>
+
+  <div class= "actions">
+    <%= form.submit %>
+  </div>
+<% end %>
