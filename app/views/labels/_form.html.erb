@@ -1,26 +1,24 @@
 <%= form_with(model: label) do |form| %>
+  <div class="d-flex flex-column flex-wrap justify-content-center align-items-center pt-3 mt-1 off-white">
+    <div class="d-flex flex-row flex-wrap justify-content-center pt-1 mt-1 off-white">
+      <div class="card m-2 shadow d-flex flex-column justify-content-between align-items-center bg-light border-0" style="width: 25rem;">
+        <div class="field w-75 m-2 mt-4">
+          <%= form.text_field :title, placeholder: "Maximum of 20 characters only", class: "text-center form-control" %>
+        </div>
+        <div class="field">
+          <%= form.number_field :user_id, id: :note_user_id, value: current_user.id, type: :hidden %>
+        </div>
+        <div class= "actions mb-3">
+          <%= form.submit %>
+        </div>
+      </div>
+    </div>
+  </div>
   <% if label.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(label.errors.count, "error") %> prohibited this label from being saved:</h2>
-
-      <ul>
-        <% label.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+    <div class="d-flex flex-wrap justify-content-center mt-2">
+      <% label.errors.full_messages.each do |message| %>
+        <div class="alert alert-danger m-2" role="alert"><%= message %></div>
+      <% end %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= form.number_field :user_id, id: :note_user_id, value: current_user.id, type: :hidden %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>

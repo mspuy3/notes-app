@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand btn" href="#">Notes with Labels</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item m-2">
+          <%= link_to "Today's Notes", timed_path, class: "nav-link btn btn-outline-primary border-0 text-dark"%>
+        </li>
+        <li class="nav-item m-2">
+          <%= link_to 'All Notes', notes_path, class: "nav-link btn btn-outline-primary border-0 text-dark"%>
+        </li>
+        <li class="nav-item m-2">
+          <%= link_to 'All Labels', labels_path, class: "nav-link btn btn-outline-primary border-0 text-dark"%>
+        </li>
+      </ul>
+      <div class="btn btn-sm dropdown text-decoration-none p-0">
+        <a class="btn dropdown-toggle text-primary text-decoration-none" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <span class="text-decoration-none"><%= current_user.email %></span>
+        </a>
+        <ul class="dropdown-menu nav-pills" aria-labelledby="navbarDropdown">
+          <li class="nav-item m-2">
+            <%= link_to 'Edit Profile', edit_user_registration_path, class: "nav-link active text-success bg-light m-1 mb-4"%>
+          </li>
+          <li class="nav-item m-2">
+            <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-link active text-danger bg-light m-1 mb-2"%>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>

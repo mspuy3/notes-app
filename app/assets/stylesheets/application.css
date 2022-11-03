@@ -13,3 +13,20 @@
  *= require_tree .
  *= require_self
  */
+
+ @import url('https://fonts.googleapis.com/css2?family=Karla:ital@1&family=Spectral:ital,wght@1,500&display=swap');
+
+ body {
+  font-family: 'Karla', sans-serif;
+ }
+
+ .btn:hover .nav-link:hover {
+  color: #fff !important;
+  text-decoration: none;
+  background-color: none;
+  }
+
+a .no-highlight:hover {
+    color: inherit;
+    background-color: none;
+}

@@ -1,0 +1,16 @@
+<!-- Button trigger modal -->
+<div class="fixed-bottom w-100 d-flex justify-content-end p-5">
+  <button type="button" class="btn btn-success btn-lg shadow" data-bs-toggle="modal" data-bs-target="#newButton">
+    NEW
+  </button>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="newButton" tabindex="-1" aria-labelledby="newButtonLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered w-100" style="width: 25rem;">
+    <div class="modal-content d-flex flex-column align-items-center bg-transparent border-0">
+      <button type="button" class="my-3 btn-outline-warning btn-lg border-0 bg-transparent rounded-circle m-4" data-bs-dismiss="modal" aria-label="Close">❌</button>
+      <%= link_to 'New Note', new_note_path, class: "btn btn-light btn-lg btn-block m-4 text-dark" %>
+      <%= link_to 'New Label', new_label_path, class: "btn btn-dark btn-lg btn-block m-4 text-light" %>
+    </div>
+  </div>
+</div>

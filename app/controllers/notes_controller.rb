@@ -1,5 +1,5 @@
 class NotesController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!
   before_action :set_note, only: %i[ show edit update destroy] # set_note makes new, edit, and update empty
   before_action :set_label
 
@@ -9,9 +9,16 @@ class NotesController < ApplicationController
     @notes = current_user.notes.all
   end
 
+  # GET /notes or /notes.json with deadlines
   def timed
-    # @notes = Note.all
-    @notes = current_user.notes.all
+    @notes_timed = []
+    @notes = current_user.notes.all.reverse_each
+    @notes.each do |note|
+        if note.deadline && note.deadline.today?
+            @notes_timed.push(note)
+        end
+    end
+    @notes_timed
   end
 
   # GET /notes/1 or /notes/1.json

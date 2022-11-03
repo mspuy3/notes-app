@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   
-  root "notes#index"
+  root "notes#timed"
 
   resources :notes
   get 'notes/new', to: 'notes#new'
