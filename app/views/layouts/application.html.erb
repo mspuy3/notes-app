@@ -8,15 +8,17 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <body class="container-fluid trix-content change-font">
+  <body class="container-fluid trix-content change-font align-items-center">
     <%= render "header2" %>
     <%= yield %>
     <%= render "new-items" %>
-    <% if notice %>
-      <p class="alert alert-success text-center"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert alert-danger text-center"><%= alert %></p>
-    <% end %>
+    <div class="d-flex flex-wrap justify-content-center fixed-bottom m-5">
+      <% if notice %>
+        <div class="alert alert-success text-center m-3"><%= notice %></div>
+      <% end %>
+      <% if alert %>
+        <div class="alert alert-danger text-center m-3"><%= alert %></div>
+      <% end %>
+    </div>
   </body>
 </html>

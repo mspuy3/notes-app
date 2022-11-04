@@ -6,7 +6,7 @@
           <%= form.text_field :head, placeholder: "Maximum of 30 characters only", class: "text-center form-control"%>
         </div>
         <div class="field w-75 m-2">
-          <%= form.text_field :body, placeholder: "Optional additional information here", class: "text-center form-control w-100"%>
+          <%= form.text_area :body, placeholder: "Optional additional information here", class: "text-center form-control w-100"%>
         </div>
         <div class="field m-2 text-center">
           <%= form.label 'Deadline (Optional)', class: "card-text text-dark mb-2" %>
@@ -15,6 +15,7 @@
         <div class="field m-2 text-center">
           <%= form.label 'Label (Required)', class: "card-text text-dark" %>
           <%= form.select :label_id, options_for_select(@labels.collect { |label| [label.title, label.id]}), :include_blank => true %>
+          <p class="card-text text-danger mt-2"> <%= @current_label ? 'Previous label was ' + @current_label.title : '' %>  </p>
         </div>
         <div class="field">
           <%= form.number_field :user_id, id: :note_user_id, value: current_user.id, type: :hidden %>

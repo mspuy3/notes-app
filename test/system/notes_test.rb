@@ -2,7 +2,7 @@ require "application_system_test_case"
 
 class NotesTest < ApplicationSystemTestCase
   setup do
-    @note = notes(:one)
+    @note = notes(:note1)
   end
 
   test "visiting the index" do

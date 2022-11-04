@@ -4,6 +4,7 @@
       <div class="bg-light border-0 card m-4 shadow d-flex flex-column justify-content-between" style="min-width: 18rem; height: auto;">
           <div class="card-body d-flex flex-column align-items-center">
             <p class="card-text text-dark mx-1 text-left"><%= @note.body.empty? ? 'No Details' : @note.body %></p>
+            
             <div class="d-flex flex-row flex-wrap justify-content-start align-items-center">
               <button class="btn btn-info btn-sm p-1 m-1 rounded border-0 font-weight-bold"> <%= @note.deadline ? @note.deadline.strftime('%d %b %Y %I:%M %p') : 'No Deadline' %> </button>
             </div>

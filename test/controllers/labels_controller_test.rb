@@ -2,7 +2,8 @@ require "test_helper"
 
 class LabelsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @label = labels(:one)
+    sign_in users(:user1)
+    @label = labels(:label1)
   end
 
   test "should get index" do

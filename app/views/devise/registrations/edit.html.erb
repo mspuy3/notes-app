@@ -1,9 +1,9 @@
 <div class="d-flex flex-row flex-wrap justify-content-center pt-2 mt-2">
   <div class="edit-container">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
       <h3 class=" px-3  text-center pt-2 mt-2">Edit Account </h3>
       <div class="card m-3 shadow d-flex flex-column justify-content-between bg-light border-0" style="width: 25rem;">
+      <%= render "devise/shared/error_messages", resource: resource %>
         <div class="card-body d-flex flex-column justify-content-between">
           <div class="field">
             <%= f.label :email, class: "small" %><br />
@@ -25,15 +25,14 @@
           </div>
           <div class="field">
             <%= f.label :current_password, class: "small"  %> <br />
-            <i class="small">(we need your current password to confirm your changes)</i><br />
             <%= f.password_field :current_password, autocomplete: "current-password", class: "text-center form-control mb-1" %>
           </div>
           <div class="actions">
             <%= f.submit "Update", class: "btn btn-success shadow w-100" %>
           </div>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
   <div class="delete-container">
     <h3 class=" px-3  text-center pt-2 mt-2">Delete My Account</h3>

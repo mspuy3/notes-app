@@ -34,11 +34,13 @@ class NotesController < ApplicationController
 
   # GET /notes/1/edit
   def edit
+    @current_label = @note.label
   end
 
   # POST /notes or /notes.json
   def create
     @note = Note.new(note_params)
+    @note.user = current_user
 
     respond_to do |format|
       if @note.save
@@ -82,7 +84,7 @@ class NotesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def note_params
-      params.require(:note).permit(:head, :body, :deadline, :label_id, :user_id)
+      params.require(:note).permit(:head, :body, :deadline, :label_id)
     end
 
     # Define labels to be displayed for label setting of notes.

@@ -1,9 +1,19 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+note1:
   head: MyString
   body: MyString
+  label_id: 1
+  user_id: user1.id
 
-two:
-  head: MyString
+note2:
+  head: MyString2
   body: MyString
+  label_id: 1
+  user_id: user1.id
+
+note3:
+  head: MyString3
+  body: MyString
+  label_id: 1
+  user_id: user1.id

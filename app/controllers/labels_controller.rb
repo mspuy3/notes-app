@@ -24,6 +24,7 @@ class LabelsController < ApplicationController
   # POST /labels or /labels.json
   def create
     @label = Label.new(label_params)
+    @label.user = current_user
 
     respond_to do |format|
       if @label.save
@@ -67,6 +68,6 @@ class LabelsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def label_params
-      params.require(:label).permit(:title, :user_id)
+      params.require(:label).permit(:title)
     end
 end
